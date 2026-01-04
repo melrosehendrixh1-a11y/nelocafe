@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Nelo Cafe Digital Studio | Premium Digital Solutions</title>
+    <meta name="description" content="Learn about Nelo Cafe Digital Studio - We create world-class digital experiences that elevate brands and accelerate business growth for South African companies.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Inter', 'system-ui', 'sans-serif'],
+                        'body': ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    colors: {
+                        'luxury-black': '#000000',
+                        'luxury-white': '#FFFFFF',
+                        'luxury-gray': '#2C2C2E',
+                        'luxury-light-gray': '#F2F2F7',
+                        'luxury-silver': '#C7C7CC',
+                        'luxury-dark': '#1C1C1E'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .luxury-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-luxury {
+            background: linear-gradient(135deg, #000000 0%, #2C2C2E 100%);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .btn-luxury:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline-luxury {
+            border: 2px solid #000000;
+            color: #000000;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .btn-outline-luxury:hover {
+            background: #000000;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stats-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #000000 0%, #2C2C2E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-luxury-white text-luxury-black">
+    <!-- Header -->
+    <header class="header fixed top-0 left-0 right-0 z-50 bg-luxury-white/95 backdrop-blur-md border-b border-luxury-light-gray">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-lg flex items-center justify-center">
+                        <span class="text-luxury-white font-bold text-lg">NC</span>
+                    </div>
+                    <div>
+                        <h1 class="font-display font-bold text-xl text-luxury-black">Nelo Cafe</h1>
+                        <p class="text-sm text-luxury-gray">Digital Studio</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Home</a>
+                    <a href="about.html" class="text-luxury-black font-medium hover:text-luxury-gray transition-colors">About</a>
+                    <a href="services.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Services</a>
+                    <a href="portfolio.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Portfolio</a>
+                    <a href="pricing.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Pricing</a>
+                    <a href="contact.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Contact</a>
+                </nav>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle md:hidden p-2">
+                    <div class="w-6 h-6 flex flex-col justify-center space-y-1">
+                        <span class="block w-full h-0.5 bg-luxury-black transition-all duration-300"></span>
+                        <span class="block w-full h-0.5 bg-luxury-black transition-all duration-300"></span>
+                        <span class="block w-full h-0.5 bg-luxury-black transition-all duration-300"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay fixed inset-0 bg-black/50 z-40 md:hidden"></div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed top-0 right-0 w-80 h-full bg-luxury-white z-50 md:hidden">
+        <div class="p-6 pt-20">
+            <ul class="mobile-menu-list space-y-6">
+                <!-- Menu items will be populated by JavaScript -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-luxury-light-gray">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-6xl font-display font-bold text-luxury-black mb-6 leading-tight">
+                    About Nelo Cafe
+                </h1>
+                <p class="text-xl md:text-2xl text-luxury-gray max-w-3xl mx-auto leading-relaxed">
+                    Creating world class digital experiences that elevate brands and accelerate business growth across South Africa.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Story Section -->
+    <section class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="section">
+                    <h2 class="text-4xl font-display font-bold text-luxury-black mb-8">
+                        Our Mission
+                    </h2>
+                    <div class="space-y-6 text-lg text-luxury-gray leading-relaxed">
+                        <p>
+                            Nelo Cafe Digital Studio creates world-class digital experiences that elevate brands and accelerate business growth. We combine clean luxury design with strong performance and strategy, ensuring every website feels premium and converts visitors into customers.
+                        </p>
+                        <p>
+                            Founded in Polokwane, South Africa, we understand the unique challenges and opportunities facing local businesses in the digital landscape. Our approach is rooted in the belief that every business, regardless of size, deserves a premium online presence that competes on a national scale.
+                        </p>
+                        <p>
+                            We proudly serve local businesses salons, boutiques, restaurants, and professional services with online presence that not only looks exceptional but drives measurable results. Our commitment to excellence ensures that every project we undertake reflects the quality and professionalism our clients expect.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="luxury-card rounded-2xl p-8">
+                        <h3 class="text-2xl font-display font-bold text-luxury-black mb-6">Our Values</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                    <svg class="w-4 h-4 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-semibold text-luxury-black mb-2">Excellence</h4>
+                                    <p class="text-luxury-gray text-sm">We deliver nothing less than exceptional quality in every aspect of our work.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                    <svg class="w-4 h-4 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-semibold text-luxury-black mb-2">Reliability</h4>
+                                    <p class="text-luxury-gray text-sm">Consistent delivery and ongoing support you can depend on.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                    <svg class="w-4 h-4 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-semibold text-luxury-black mb-2">Innovation</h4>
+                                    <p class="text-luxury-gray text-sm">Cutting edge solutions that keep you ahead of the competition.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                    <svg class="w-4 h-4 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-semibold text-luxury-black mb-2">Client Focus</h4>
+                                    <p class="text-luxury-gray text-sm">Your success is our priority, reflected in every decision we make.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Focus Section -->
+    <section class="py-20 bg-luxury-light-gray">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-luxury-black mb-6">
+                    Industries We Serve
+                </h2>
+                <p class="text-xl text-luxury-gray max-w-2xl mx-auto">
+                    Specialized digital solutions for businesses that demand excellence and premium presentation.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-item luxury-card rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-luxury-black mb-4">Beauty & Wellness</h3>
+                    <p class="text-luxury-gray leading-relaxed">
+                        Salons, spas, and wellness centers with booking systems and premium branding.
+                    </p>
+                </div>
+                
+                <div class="service-item luxury-card rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-luxury-black mb-4">Retail & Fashion</h3>
+                    <p class="text-luxury-gray leading-relaxed">
+                        Boutiques and retail stores with e-commerce solutions and brand development.
+                    </p>
+                </div>
+                
+                <div class="service-item luxury-card rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-luxury-black mb-4">Food & Beverage</h3>
+                    <p class="text-luxury-gray leading-relaxed">
+                        Restaurants and cafes with reservation systems and menu showcases.
+                    </p>
+                </div>
+                
+                <div class="service-item luxury-card rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-luxury-black mb-4">Professional Services</h3>
+                    <p class="text-luxury-gray leading-relaxed">
+                        Consultants, agencies, and service providers with lead generation focus.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="luxury-card rounded-2xl p-12 text-center">
+                <div class="w-24 h-24 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-full flex items-center justify-center mx-auto mb-8">
+                    <span class="text-luxury-white font-bold text-2xl">MM</span>
+                </div>
+                <h3 class="text-3xl font-display font-bold text-luxury-black mb-4">
+                    Melton Nkgetheng Mathobela
+                </h3>
+                <p class="text-xl text-luxury-gray mb-6">Founder & Creative Director</p>
+                <p class="text-lg text-luxury-gray leading-relaxed max-w-2xl mx-auto">
+                    With over 8 years of experience in digital design and development, Melton founded Nelo Cafe Digital Studio with a vision to bring premium digital solutions to South African businesses. His passion for excellence and attention to detail drives every project, ensuring clients receive nothing but the best in digital craftsmanship.
+                </p>
+                <div class="mt-8">
+                    <a href="contact.html" class="btn-luxury text-white px-8 py-4 rounded-lg font-semibold text-lg">
+                        Work With Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-luxury-light-gray">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-luxury-black mb-6">
+                Ready to Elevate Your Brand?
+            </h2>
+            <p class="text-xl text-luxury-gray mb-8 leading-relaxed">
+                Let's create a digital experience that reflects the quality and professionalism of your business. 
+                Contact us today to discuss your project and discover how we can help you achieve your goals.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="btn-luxury text-white px-8 py-4 rounded-lg font-semibold text-lg">
+                    Start Your Project
+                </a>
+                <a href="portfolio.html" class="btn-outline-luxury px-8 py-4 rounded-lg font-semibold text-lg">
+                    View Our Work
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-luxury-dark text-luxury-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-6">
+                    <div class="w-10 h-10 bg-gradient-to-br from-luxury-white to-luxury-light-gray rounded-lg flex items-center justify-center">
+                        <span class="text-luxury-black font-bold text-lg">NC</span>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-xl">Nelo Cafe Digital Studio</h3>
+                        <p class="text-luxury-light-gray text-sm">Premium Digital Solutions</p>
+                    </div>
+                </div>
+                
+                <p class="text-luxury-light-gray mb-4">
+                    Polokwane, South Africa | nelo3482@gmail.com | 074 065 0953
+                </p>
+                
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="index.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Home</a>
+                    <a href="about.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">About</a>
+                    <a href="services.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Services</a>
+                    <a href="portfolio.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Portfolio</a>
+                    <a href="pricing.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Pricing</a>
+                    <a href="contact.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Contact</a>
+                </div>
+                
+                <p class="text-luxury-light-gray text-sm">
+                    © 2025 Nelo Cafe Digital Studio. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+</html>

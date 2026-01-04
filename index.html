@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nelo Cafe Digital Studio - Premium Digital Solutions | Polokwane, South Africa</title>
+    <meta name="description" content="Where design meets luxury. Nelo Cafe Digital Studio crafts premium websites and digital solutions for South African brands. Professional web design, branding, and digital marketing services.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Inter', 'system-ui', 'sans-serif'],
+                        'body': ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    colors: {
+                        'luxury-black': '#000000',
+                        'luxury-white': '#FFFFFF',
+                        'luxury-gray': '#2C2C2E',
+                        'luxury-light-gray': '#F2F2F7',
+                        'luxury-silver': '#C7C7CC',
+                        'luxury-dark': '#1C1C1E'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .hero-background {
+            background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #000000 0%, #2C2C2E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .luxury-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-luxury {
+            background: linear-gradient(135deg, #000000 0%, #2C2C2E 100%);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .btn-luxury:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline-luxury {
+            border: 2px solid #000000;
+            color: #000000;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .btn-outline-luxury:hover {
+            background: #000000;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .portfolio-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .typewriter-cursor {
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .splide__slide img {
+            border-radius: 12px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-luxury-white text-luxury-black">
+    <!-- Header -->
+    <header class="header fixed top-0 left-0 right-0 z-50 bg-luxury-white/95 backdrop-blur-md border-b border-luxury-light-gray">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-lg flex items-center justify-center">
+                        <span class="text-luxury-white font-bold text-lg">NC</span>
+                    </div>
+                    <div>
+                        <h1 class="font-display font-bold text-xl text-luxury-black">Nelo Cafe</h1>
+                        <p class="text-sm text-luxury-gray">Digital Studio</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-luxury-black font-medium hover:text-luxury-gray transition-colors">Home</a>
+                    <a href="about.html" class="text-luxury-gray hover:text-luxury-black transition-colors">About</a>
+                    <a href="services.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Services</a>
+                    <a href="portfolio.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Portfolio</a>
+                    <a href="pricing.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Pricing</a>
+                    <a href="contact.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Contact</a>
+                </nav>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle md:hidden p-2">
+                    <div class="w-6 h-6 flex flex-col justify-center space-y-1">
+                        <span class="block w-full h-0.5 bg-luxury-black transition-all duration-300"></span>
+                        <span class="block w-full h-0.5 bg-luxury-black transition-all duration-300"></span>
+                        <span class="block w-full h-0.5 bg-luxury-black transition-all duration-300"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay fixed inset-0 bg-black/50 z-40 md:hidden"></div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed top-0 right-0 w-80 h-full bg-luxury-white z-50 md:hidden">
+        <div class="p-6 pt-20">
+            <ul class="mobile-menu-list space-y-6">
+                <!-- Menu items will be populated by JavaScript -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="hero-background">
+            <img src="resources/hero-studio.png" alt="Luxury Digital Studio Workspace" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="hero-content max-w-6xl mx-auto px-6 text-center">
+            <div class="mb-8">
+                <h1 class="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight">
+                    <span class="gradient-text typewriter-text"></span>
+                </h1>
+                <p class="text-xl md:text-2xl text-luxury-gray max-w-3xl mx-auto leading-relaxed">
+                    Building premium websites and digital solutions for South African brands that inspire and convert.
+                </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <a href="services.html" class="btn-luxury text-white px-8 py-4 rounded-lg font-semibold text-lg">
+                    View Services
+                </a>
+                <a href="portfolio.html" class="btn-outline-luxury px-8 py-4 rounded-lg font-semibold text-lg">
+                    View Portfolio
+                </a>
+                <a href="contact.html" class="btn-outline-luxury px-8 py-4 rounded-lg font-semibold text-lg">
+                    Contact Us
+                </a>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-luxury-gray text-lg">
+                    <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                    Based in Polokwane, South Africa
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Preview Section -->
+    <section class="py-20 bg-luxury-light-gray">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-luxury-black mb-6">
+                    Featured Work
+                </h2>
+                <p class="text-xl text-luxury-gray max-w-2xl mx-auto">
+                    Explore our portfolio of premium digital experiences crafted for South African businesses.
+                </p>
+            </div>
+            
+            <div class="splide" id="portfolio-slider">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="portfolio-card luxury-card rounded-2xl p-6 h-full">
+                                <img src="https://kimi-web-img.moonshot.cn/img/hauteliving.com/7227cb58e1d8a85090de4e88104f241b5a55e0e1.jpg" alt="LuxeStrands Salon" class="w-full h-64 object-cover mb-6">
+                                <h3 class="text-2xl font-display font-bold text-luxury-black mb-3">LuxeStrands Salon</h3>
+                                <p class="text-luxury-gray mb-6 leading-relaxed">
+                                    Luxury hair salon website with online booking integration and Instagram gallery syncing.
+                                </p>
+                                <button onclick="app.openCaseStudy('luxestrands')" class="btn-luxury text-white px-6 py-3 rounded-lg font-semibold">
+                                    View Case Study
+                                </button>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="portfolio-card luxury-card rounded-2xl p-6 h-full">
+                                <img src="https://kimi-web-img.moonshot.cn/img/www.palmspringslife.com/e1d9b0a0ae7913b1c8d27726b003058df90d7a8a.jpg" alt="Velora Boutique" class="w-full h-64 object-cover mb-6">
+                                <h3 class="text-2xl font-display font-bold text-luxury-black mb-3">Velora Boutique</h3>
+                                <p class="text-luxury-gray mb-6 leading-relaxed">
+                                    Elegant fashion boutique with premium e-commerce experience and brand identity.
+                                </p>
+                                <button onclick="app.openCaseStudy('velora')" class="btn-luxury text-white px-6 py-3 rounded-lg font-semibold">
+                                    View Case Study
+                                </button>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="portfolio-card luxury-card rounded-2xl p-6 h-full">
+                                <img src="https://kimi-web-img.moonshot.cn/img/mindfuldesignconsulting.com/368a9cc0daa5d389676dcce14befc79d630daa00.jpg" alt="Maison Éclat Restaurant" class="w-full h-64 object-cover mb-6">
+                                <h3 class="text-2xl font-display font-bold text-luxury-black mb-3">Maison Éclat</h3>
+                                <p class="text-luxury-gray mb-6 leading-relaxed">
+                                    Fine dining restaurant website with reservation system and culinary showcase.
+                                </p>
+                                <button onclick="app.openCaseStudy('maison')" class="btn-luxury text-white px-6 py-3 rounded-lg font-semibold">
+                                    View Case Study
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview Section -->
+    <section class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-luxury-black mb-6">
+                    Our Services
+                </h2>
+                <p class="text-xl text-luxury-gray max-w-2xl mx-auto">
+                    Comprehensive digital solutions designed to elevate your brand and drive business growth.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-item luxury-card rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-luxury-black mb-4">Website Design</h3>
+                    <p class="text-luxury-gray leading-relaxed">
+                        Premium websites that combine stunning visuals with exceptional performance and user experience.
+                    </p>
+                </div>
+                
+                <div class="service-item luxury-card rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-luxury-black mb-4">Branding & Identity</h3>
+                    <p class="text-luxury-gray leading-relaxed">
+                        Complete brand identity design that reflects your values and resonates with your target audience.
+                    </p>
+                </div>
+                
+                <div class="service-item luxury-card rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-luxury-black mb-4">Digital Marketing</h3>
+                    <p class="text-luxury-gray leading-relaxed">
+                        Strategic SEO and digital marketing solutions to increase your online visibility and drive growth.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="services.html" class="btn-luxury text-white px-8 py-4 rounded-lg font-semibold text-lg">
+                    View All Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-luxury-light-gray">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-luxury-black mb-6">
+                    Why Choose Nelo Cafe
+                </h2>
+                <p class="text-xl text-luxury-gray max-w-2xl mx-auto">
+                    We deliver premium digital solutions that drive real business results for South African companies.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-display font-bold text-luxury-black mb-2">Designed for Growth</h3>
+                            <p class="text-luxury-gray leading-relaxed">
+                                Every website we create is optimized for conversions and designed to help your business grow.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-display font-bold text-luxury-black mb-2">Luxury Performance</h3>
+                            <p class="text-luxury-gray leading-relaxed">
+                                Premium aesthetics combined with lightning-fast performance and exceptional user experience.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-display font-bold text-luxury-black mb-2">Complete Setup</h3>
+                            <p class="text-luxury-gray leading-relaxed">
+                                Done-for-you service from domain setup to launch, with ongoing support and maintenance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="luxury-card rounded-2xl p-8">
+                    <h3 class="text-2xl font-display font-bold text-luxury-black mb-6">Ready to Transform Your Business?</h3>
+                    <p class="text-luxury-gray mb-8 leading-relaxed">
+                        Join the ranks of successful South African businesses that have elevated their digital presence with our premium solutions.
+                    </p>
+                    <div class="space-y-4">
+                        <a href="contact.html" class="btn-luxury text-white px-6 py-3 rounded-lg font-semibold w-full block text-center">
+                            Start Your Project
+                        </a>
+                        <a href="portfolio.html" class="btn-outline-luxury px-6 py-3 rounded-lg font-semibold w-full block text-center">
+                            View Our Work
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-luxury-dark text-luxury-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-6">
+                    <div class="w-10 h-10 bg-gradient-to-br from-luxury-white to-luxury-light-gray rounded-lg flex items-center justify-center">
+                        <span class="text-luxury-black font-bold text-lg">NC</span>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-xl">Nelo Cafe Digital Studio</h3>
+                        <p class="text-luxury-light-gray text-sm">Premium Digital Solutions</p>
+                    </div>
+                </div>
+                
+                <p class="text-luxury-light-gray mb-4">
+                    Polokwane, South Africa | nelo3482@gmail.com | 074 065 0953
+                </p>
+                
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="index.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Home</a>
+                    <a href="about.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">About</a>
+                    <a href="services.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Services</a>
+                    <a href="portfolio.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Portfolio</a>
+                    <a href="pricing.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Pricing</a>
+                    <a href="contact.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Contact</a>
+                </div>
+                
+                <p class="text-luxury-light-gray text-sm">
+                    © 2025 Nelo Cafe Digital Studio. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script>
+        // Initialize portfolio slider
+        document.addEventListener('DOMContentLoaded', function() {
+            new Splide('#portfolio-slider', {
+                type: 'loop',
+                perPage: 3,
+                perMove: 1,
+                gap: '2rem',
+                autoplay: true,
+                interval: 4000,
+                pauseOnHover: true,
+                breakpoints: {
+                    1024: {
+                        perPage: 2,
+                    },
+                    640: {
+                        perPage: 1,
+                    }
+                }
+            }).mount();
+        });
+    </script>
+</body>
+</html>

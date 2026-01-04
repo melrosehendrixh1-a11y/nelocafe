@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Nelo Cafe Digital Studio | Premium Web Design & Digital Solutions</title>
+    <meta name="description" content="Comprehensive digital services including website design, branding, SEO, e-commerce, and ongoing support. Premium solutions for South African businesses.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Inter', 'system-ui', 'sans-serif'],
+                        'body': ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    colors: {
+                        'luxury-black': '#000000',
+                        'luxury-white': '#FFFFFF',
+                        'luxury-gray': '#2C2C2E',
+                        'luxury-light-gray': '#F2F2F7',
+                        'luxury-silver': '#C7C7CC',
+                        'luxury-dark': '#1C1C1E'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .luxury-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .luxury-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-luxury {
+            background: linear-gradient(135deg, #000000 0%, #2C2C2E 100%);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .btn-luxury:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline-luxury {
+            border: 2px solid #000000;
+            color: #000000;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .btn-outline-luxury:hover {
+            background: #000000;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .service-icon {
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .luxury-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+        
+        .pricing-toggle:checked ~ .toggle-dot {
+            transform: translateX(1.5rem);
+        }
+    </style>
+</head>
+<body class="bg-luxury-white text-luxury-black">
+    <!-- Header -->
+    <header class="header fixed top-0 left-0 right-0 z-50 bg-luxury-white/95 backdrop-blur-md border-b border-luxury-light-gray">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-lg flex items-center justify-center">
+                        <span class="text-luxury-white font-bold text-lg">NC</span>
+                    </div>
+                    <div>
+                        <h1 class="font-display font-bold text-xl text-luxury-black">Nelo Cafe</h1>
+                        <p class="text-sm text-luxury-gray">Digital Studio</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Home</a>
+                    <a href="about.html" class="text-luxury-gray hover:text-luxury-black transition-colors">About</a>
+                    <a href="services.html" class="text-luxury-black font-medium hover:text-luxury-gray transition-colors">Services</a>
+                    <a href="portfolio.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Portfolio</a>
+                    <a href="pricing.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Pricing</a>
+                    <a href="contact.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Contact</a>
+                </nav>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle md:hidden p-2">
+                    <div class="w-6 h-6 flex flex-col justify-center space-y-1">
+                        <span class="block w-full h-0.5 bg-luxury-black transition-all duration-300"></span>
+                        <span class="block w-full h-0.5 bg-luxury-black transition-all duration-300"></span>
+                        <span class="block w-full h-0.5 bg-luxury-black transition-all duration-300"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay fixed inset-0 bg-black/50 z-40 md:hidden"></div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed top-0 right-0 w-80 h-full bg-luxury-white z-50 md:hidden">
+        <div class="p-6 pt-20">
+            <ul class="mobile-menu-list space-y-6">
+                <!-- Menu items will be populated by JavaScript -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-luxury-light-gray">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-6xl font-display font-bold text-luxury-black mb-6 leading-tight">
+                    Our Services
+                </h1>
+                <p class="text-xl md:text-2xl text-luxury-gray max-w-3xl mx-auto leading-relaxed">
+                    Comprehensive digital solutions designed to elevate your brand and drive measurable business growth.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Website Design & Development -->
+                <div class="service-item luxury-card rounded-2xl p-8">
+                    <div class="service-icon w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-luxury-black mb-4">Website Design & Development</h3>
+                    <p class="text-luxury-gray leading-relaxed mb-6">
+                        Premium websites that combine stunning visuals with exceptional performance. We create responsive, fast-loading websites that provide an outstanding user experience across all devices.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Mobile-first responsive design
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Lightning-fast loading speeds
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            SEO-optimized structure
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Cross-browser compatibility
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='contact.html'" class="btn-luxury text-white px-6 py-3 rounded-lg font-semibold w-full">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Branding & Visual Identity -->
+                <div class="service-item luxury-card rounded-2xl p-8">
+                    <div class="service-icon w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-luxury-black mb-4">Branding & Visual Identity</h3>
+                    <p class="text-luxury-gray leading-relaxed mb-6">
+                        Complete brand identity design that reflects your values and resonates with your target audience. From logos to complete brand guidelines.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Logo design & brand marks
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Brand guidelines & style guides
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Business cards & stationery
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Social media branding
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='contact.html'" class="btn-luxury text-white px-6 py-3 rounded-lg font-semibold w-full">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- SEO & Digital Marketing -->
+                <div class="service-item luxury-card rounded-2xl p-8">
+                    <div class="service-icon w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-luxury-black mb-4">SEO & Digital Marketing</h3>
+                    <p class="text-luxury-gray leading-relaxed mb-6">
+                        Strategic SEO and digital marketing solutions to increase your online visibility, drive qualified traffic, and convert visitors into customers.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Technical SEO optimization
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Content strategy & creation
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Local SEO for South Africa
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Performance tracking & analytics
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='contact.html'" class="btn-luxury text-white px-6 py-3 rounded-lg font-semibold w-full">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Domain & Hosting Setup -->
+                <div class="service-item luxury-card rounded-2xl p-8">
+                    <div class="service-icon w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-luxury-black mb-4">Domain & Hosting Setup</h3>
+                    <p class="text-luxury-gray leading-relaxed mb-6">
+                        Complete technical setup including domain registration, premium hosting configuration, and email setup. We handle all the technical details.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Domain registration & management
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Premium hosting setup
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Professional email setup
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            SSL certificate installation
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='contact.html'" class="btn-luxury text-white px-6 py-3 rounded-lg font-semibold w-full">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- E-commerce Websites -->
+                <div class="service-item luxury-card rounded-2xl p-8">
+                    <div class="service-icon w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-luxury-black mb-4">E-commerce Websites</h3>
+                    <p class="text-luxury-gray leading-relaxed mb-6">
+                        Complete online store solutions with secure payment processing, inventory management, and customer relationship tools.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Secure payment integration
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Inventory management
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Customer account systems
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Order tracking & management
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='contact.html'" class="btn-luxury text-white px-6 py-3 rounded-lg font-semibold w-full">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Continuous Support & Maintenance -->
+                <div class="service-item luxury-card rounded-2xl p-8">
+                    <div class="service-icon w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-luxury-black mb-4">Support & Maintenance</h3>
+                    <p class="text-luxury-gray leading-relaxed mb-6">
+                        Ongoing support, security updates, and performance monitoring to keep your website running smoothly and securely at all times.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            24/7 security monitoring
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Regular backups & updates
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Performance optimization
+                        </div>
+                        <div class="flex items-center text-sm text-luxury-gray">
+                            <svg class="w-4 h-4 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Priority support response
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='contact.html'" class="btn-luxury text-white px-6 py-3 rounded-lg font-semibold w-full">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20 bg-luxury-light-gray">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-luxury-black mb-6">
+                    Our Process
+                </h2>
+                <p class="text-xl text-luxury-gray max-w-2xl mx-auto">
+                    A streamlined approach that ensures exceptional results and complete client satisfaction.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-luxury-white font-bold text-xl">1</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-luxury-black mb-4">Discovery</h3>
+                    <p class="text-luxury-gray leading-relaxed">
+                        We understand your business, goals, and target audience to create a tailored strategy.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-luxury-white font-bold text-xl">2</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-luxury-black mb-4">Design</h3>
+                    <p class="text-luxury-gray leading-relaxed">
+                        Create stunning visual designs that reflect your brand and engage your audience.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-luxury-white font-bold text-xl">3</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-luxury-black mb-4">Development</h3>
+                    <p class="text-luxury-gray leading-relaxed">
+                        Build and optimize your website with clean code and performance-focused development.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-luxury-white font-bold text-xl">4</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-luxury-black mb-4">Launch</h3>
+                    <p class="text-luxury-gray leading-relaxed">
+                        Deploy your website with ongoing support and optimization for continued success.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-luxury-black mb-6">
+                Ready to Transform Your Business?
+            </h2>
+            <p class="text-xl text-luxury-gray mb-8 leading-relaxed">
+                Let's discuss your project and create a digital solution that drives real results for your business. 
+                Contact us today for a free consultation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="btn-luxury text-white px-8 py-4 rounded-lg font-semibold text-lg">
+                    Start Your Project
+                </a>
+                <a href="pricing.html" class="btn-outline-luxury px-8 py-4 rounded-lg font-semibold text-lg">
+                    View Pricing
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-luxury-dark text-luxury-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-6">
+                    <div class="w-10 h-10 bg-gradient-to-br from-luxury-white to-luxury-light-gray rounded-lg flex items-center justify-center">
+                        <span class="text-luxury-black font-bold text-lg">NC</span>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-xl">Nelo Cafe Digital Studio</h3>
+                        <p class="text-luxury-light-gray text-sm">Premium Digital Solutions</p>
+                    </div>
+                </div>
+                
+                <p class="text-luxury-light-gray mb-4">
+                    Polokwane, South Africa | nelo3482@gmail.com | 074 065 0953
+                </p>
+                
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="index.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Home</a>
+                    <a href="about.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">About</a>
+                    <a href="services.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Services</a>
+                    <a href="portfolio.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Portfolio</a>
+                    <a href="pricing.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Pricing</a>
+                    <a href="contact.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Contact</a>
+                </div>
+                
+                <p class="text-luxury-light-gray text-sm">
+                    © 2025 Nelo Cafe Digital Studio. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+</html>

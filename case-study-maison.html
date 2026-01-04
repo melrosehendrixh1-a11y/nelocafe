@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Maison Éclat Restaurant - Nelo Cafe Digital Studio</title>
+    <meta name="description" content="Fine dining restaurant website with reservation system and culinary showcase. See how we elevated their digital presence.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Inter', 'system-ui', 'sans-serif'],
+                        'body': ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    colors: {
+                        'luxury-black': '#000000',
+                        'luxury-white': '#FFFFFF',
+                        'luxury-gray': '#2C2C2E',
+                        'luxury-light-gray': '#F2F2F7',
+                        'luxury-silver': '#C7C7CC',
+                        'luxury-dark': '#1C1C1E'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .luxury-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-luxury {
+            background: linear-gradient(135deg, #000000 0%, #2C2C2E 100%);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .btn-luxury:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline-luxury {
+            border: 2px solid #000000;
+            color: #000000;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .btn-outline-luxury:hover {
+            background: #000000;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-image {
+            background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+        }
+    </style>
+</head>
+<body class="bg-luxury-white text-luxury-black">
+    <!-- Header -->
+    <header class="header fixed top-0 left-0 right-0 z-50 bg-luxury-white/95 backdrop-blur-md border-b border-luxury-light-gray">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-lg flex items-center justify-center">
+                        <span class="text-luxury-white font-bold text-lg">NC</span>
+                    </div>
+                    <div>
+                        <h1 class="font-display font-bold text-xl text-luxury-black">Nelo Cafe</h1>
+                        <p class="text-sm text-luxury-gray">Digital Studio</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Home</a>
+                    <a href="about.html" class="text-luxury-gray hover:text-luxury-black transition-colors">About</a>
+                    <a href="services.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Services</a>
+                    <a href="portfolio.html" class="text-luxury-black font-medium hover:text-luxury-gray transition-colors">Portfolio</a>
+                    <a href="pricing.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Pricing</a>
+                    <a href="contact.html" class="text-luxury-gray hover:text-luxury-black transition-colors">Contact</a>
+                </nav>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle md:hidden p-2">
+                    <div class="w-6 h-6 flex flex-col justify-center space-y-1">
+                        <span class="block w-full h-0.5 bg-luxury-black transition-all duration-300"></span>
+                        <span class="block w-full h-0.5 bg-luxury-black transition-all duration-300"></span>
+                        <span class="block w-full h-0.5 bg-luxury-black transition-all duration-300"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay fixed inset-0 bg-black/50 z-40 md:hidden"></div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed top-0 right-0 w-80 h-full bg-luxury-white z-50 md:hidden">
+        <div class="p-6 pt-20">
+            <ul class="mobile-menu-list space-y-6">
+                <!-- Menu items will be populated by JavaScript -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-image relative pt-32 pb-20">
+        <img src="https://kimi-web-img.moonshot.cn/img/mindfuldesignconsulting.com/368a9cc0daa5d389676dcce14befc79d630daa00.jpg" alt="Maison Éclat Restaurant" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative max-w-6xl mx-auto px-6 text-center text-white">
+            <div class="mb-8">
+                <h1 class="text-5xl md:text-6xl font-display font-bold mb-6 leading-tight">
+                    Maison Éclat
+                </h1>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
+                    Fine dining restaurant website with reservation system and culinary showcase
+                </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="window.open('#', '_blank')" class="btn-luxury text-white px-8 py-4 rounded-lg font-semibold text-lg">
+                    Visit Live Site
+                </button>
+                <a href="portfolio.html" class="btn-outline-luxury px-8 py-4 rounded-lg font-semibold text-lg border-white text-white hover:bg-white hover:text-black">
+                    Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2">
+                    <div class="section mb-12">
+                        <h2 class="text-4xl font-display font-bold text-luxury-black mb-8">
+                            Project Overview
+                        </h2>
+                        <div class="space-y-6 text-lg text-luxury-gray leading-relaxed">
+                            <p>
+                                Maison Éclat is an upscale fine dining restaurant that needed a sophisticated digital presence to match their culinary excellence. The challenge was to create a website that could effectively communicate their premium dining experience while streamlining reservations and showcasing their culinary artistry.
+                            </p>
+                            <p>
+                                We developed an elegant website featuring an interactive menu system, advanced reservation management, and a stunning visual gallery of their dishes. The site includes wine pairing recommendations, chef profiles, and an events calendar for special dining experiences.
+                            </p>
+                            <p>
+                                The result is a website that has increased reservation bookings by 180% and reduced no-shows by 40% through automated confirmations and reminders. The visual menu presentation has also increased average order value by 25% as customers can see the artistry before dining.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Challenges & Solutions -->
+                    <div class="section mb-12">
+                        <h3 class="text-3xl font-display font-bold text-luxury-black mb-8">
+                            Challenges & Solutions
+                        </h3>
+                        <div class="space-y-8">
+                            <div class="luxury-card rounded-2xl p-6">
+                                <h4 class="text-xl font-display font-bold text-luxury-black mb-4">Challenge: Reservation Management</h4>
+                                <p class="text-luxury-gray leading-relaxed mb-4">
+                                    The restaurant needed a system that could handle complex table management, special dietary requirements, and different seating times while providing an elegant booking experience.
+                                </p>
+                                <div class="bg-luxury-light-gray rounded-lg p-4">
+                                    <h5 class="font-semibold text-luxury-black mb-2">Solution:</h5>
+                                    <p class="text-luxury-gray text-sm">
+                                        Implemented a sophisticated reservation system with real-time table availability, dietary preference collection, and automated confirmation emails with menu previews and special occasion recognition.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="luxury-card rounded-2xl p-6">
+                                <h4 class="text-xl font-display font-bold text-luxury-black mb-4">Challenge: Culinary Showcase</h4>
+                                <p class="text-luxury-gray leading-relaxed mb-4">
+                                    The restaurant wanted to showcase their culinary artistry and seasonal menu changes while maintaining the ability to update content easily.
+                                </p>
+                                <div class="bg-luxury-light-gray rounded-lg p-4">
+                                    <h5 class="font-semibold text-luxury-black mb-2">Solution:</h5>
+                                    <p class="text-luxury-gray text-sm">
+                                        Created an interactive menu system with high-quality food photography, detailed descriptions, and wine pairing suggestions. Implemented an easy-to-use CMS for seasonal updates and daily specials.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Website Features -->
+                    <div class="section">
+                        <h3 class="text-3xl font-display font-bold text-luxury-black mb-8">
+                            Website Features
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="luxury-card rounded-2xl p-6">
+                                <div class="w-12 h-12 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-xl flex items-center justify-center mb-4">
+                                    <svg class="w-6 h-6 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-display font-bold text-luxury-black mb-3">Smart Reservations</h4>
+                                <p class="text-luxury-gray text-sm leading-relaxed">
+                                    Intelligent table management with dietary preferences, occasion recognition, and automated confirmations.
+                                </p>
+                            </div>
+                            
+                            <div class="luxury-card rounded-2xl p-6">
+                                <div class="w-12 h-12 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-xl flex items-center justify-center mb-4">
+                                    <svg class="w-6 h-6 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-display font-bold text-luxury-black mb-3">Interactive Menu</h4>
+                                <p class="text-luxury-gray text-sm leading-relaxed">
+                                    Visual menu presentation with high-quality photography, detailed descriptions, and wine pairing suggestions.
+                                </p>
+                            </div>
+                            
+                            <div class="luxury-card rounded-2xl p-6">
+                                <div class="w-12 h-12 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-xl flex items-center justify-center mb-4">
+                                    <svg class="w-6 h-6 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-display font-bold text-luxury-black mb-3">Location & Contact</h4>
+                                <p class="text-luxury-gray text-sm leading-relaxed">
+                                    Interactive map integration, contact information, and driving directions with parking guidance.
+                                </p>
+                            </div>
+                            
+                            <div class="luxury-card rounded-2xl p-6">
+                                <div class="w-12 h-12 bg-gradient-to-br from-luxury-black to-luxury-gray rounded-xl flex items-center justify-center mb-4">
+                                    <svg class="w-6 h-6 text-luxury-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-display font-bold text-luxury-black mb-3">Events & Specials</h4>
+                                <p class="text-luxury-gray text-sm leading-relaxed">
+                                    Events calendar for special dining experiences, seasonal menu updates, and private dining options.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Details -->
+                <div class="lg:col-span-1">
+                    <div class="luxury-card rounded-2xl p-8 sticky top-32">
+                        <h3 class="text-2xl font-display font-bold text-luxury-black mb-6">Project Details</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-semibold text-luxury-black mb-2">Client</h4>
+                                <p class="text-luxury-gray">Maison Éclat Restaurant</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-luxury-black mb-2">Industry</h4>
+                                <p class="text-luxury-gray">Hospitality & Food</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-luxury-black mb-2">Location</h4>
+                                <p class="text-luxury-gray">Cape Town, South Africa</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-luxury-black mb-2">Project Duration</h4>
+                                <p class="text-luxury-gray">7 weeks</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-luxury-black mb-2">Technologies Used</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-luxury-light-gray text-luxury-gray px-3 py-1 rounded-full text-sm">WordPress</span>
+                                    <span class="bg-luxury-light-gray text-luxury-gray px-3 py-1 rounded-full text-sm">Custom PHP</span>
+                                    <span class="bg-luxury-light-gray text-luxury-gray px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                    <span class="bg-luxury-light-gray text-luxury-gray px-3 py-1 rounded-full text-sm">WooCommerce</span>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-6 border-t border-luxury-light-gray">
+                                <h4 class="font-semibold text-luxury-black mb-4">Results</h4>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-luxury-gray">Reservations</span>
+                                        <span class="font-semibold text-luxury-black">+180%</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-luxury-gray">No-shows</span>
+                                        <span class="font-semibold text-luxury-black">-40%</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-luxury-gray">Average Order</span>
+                                        <span class="font-semibold text-luxury-black">+25%</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-luxury-gray">Customer Satisfaction</span>
+                                        <span class="font-semibold text-luxury-black">4.9/5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-luxury-light-gray">
+                            <button onclick="window.location.href='contact.html'" class="btn-luxury text-white px-6 py-3 rounded-lg font-semibold w-full mb-4">
+                                Start Similar Project
+                            </button>
+                            <a href="portfolio.html" class="btn-outline-luxury px-6 py-3 rounded-lg font-semibold w-full block text-center">
+                                View More Work
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Section -->
+    <section class="py-20 bg-luxury-light-gray">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-luxury-black mb-6">
+                    Before & After
+                </h2>
+                <p class="text-xl text-luxury-gray max-w-2xl mx-auto">
+                    From basic restaurant information to comprehensive dining experience platform.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="luxury-card rounded-2xl p-6">
+                    <h3 class="text-xl font-display font-bold text-luxury-black mb-4">Before</h3>
+                    <div class="space-y-4">
+                        <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                            <p class="text-red-700 text-sm">❌ Static menu PDF</p>
+                        </div>
+                        <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                            <p class="text-red-700 text-sm">❌ Phone-only reservations</p>
+                        </div>
+                        <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                            <p class="text-red-700 text-sm">❌ No food photography</p>
+                        </div>
+                        <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                            <p class="text-red-700 text-sm">❌ Limited information</p>
+                        </div>
+                        <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                            <p class="text-red-700 text-sm">❌ No events promotion</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="luxury-card rounded-2xl p-6">
+                    <h3 class="text-xl font-display font-bold text-luxury-black mb-4">After</h3>
+                    <div class="space-y-4">
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                            <p class="text-green-700 text-sm">✅ Interactive visual menu</p>
+                        </div>
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                            <p class="text-green-700 text-sm">✅ Online reservation system</p>
+                        </div>
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                            <p class="text-green-700 text-sm">✅ Professional food gallery</p>
+                        </div>
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                            <p class="text-green-700 text-sm">✅ Complete restaurant info</p>
+                        </div>
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                            <p class="text-green-700 text-sm">✅ Events & specials calendar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-luxury-dark text-luxury-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-6">
+                    <div class="w-10 h-10 bg-gradient-to-br from-luxury-white to-luxury-light-gray rounded-lg flex items-center justify-center">
+                        <span class="text-luxury-black font-bold text-lg">NC</span>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-xl">Nelo Cafe Digital Studio</h3>
+                        <p class="text-luxury-light-gray text-sm">Premium Digital Solutions</p>
+                    </div>
+                </div>
+                
+                <p class="text-luxury-light-gray mb-4">
+                    Polokwane, South Africa | nelo3482@gmail.com | 074 065 0953
+                </p>
+                
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="index.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Home</a>
+                    <a href="about.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">About</a>
+                    <a href="services.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Services</a>
+                    <a href="portfolio.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Portfolio</a>
+                    <a href="pricing.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Pricing</a>
+                    <a href="contact.html" class="text-luxury-light-gray hover:text-luxury-white transition-colors">Contact</a>
+                </div>
+                
+                <p class="text-luxury-light-gray text-sm">
+                    © 2025 Nelo Cafe Digital Studio. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+</html>
